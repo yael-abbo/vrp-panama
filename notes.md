@@ -43,3 +43,10 @@
 - Reliability: 8 of 10 seeds found 49.4 km; 2 got stuck at 50.7 km. A GA gives a very good answer, not a guaranteed perfect one.
 - The dials: POP_SIZE, GENERATIONS, TOURNAMENT_K, MUTATION_RATE, ELITE.
 - Chart: lesson5_progress.png (best km per generation).
+
+## Lesson 6 - Drawing the route on a map
+- folium builds an interactive map (Esri.WorldStreetMap tiles, no key needed; OSM tiles return 403 "Access blocked" when the html is opened as a local file) and saves it as an .html file. Install once: pip install folium
+- Red house pin = depot (Albrook). Blue numbered pins = stops, numbered in the order the truck visits them.
+- Blue line = GA best route (49.4 km). Gray dashed line = a random route (85.7 km), off by default; switch it on in the corner box.
+- route_points() adds the depot at both ends and turns stop numbers into (lat, lon).
+- Lines are straight because our distances are straight-line. With road distances they'd follow streets.

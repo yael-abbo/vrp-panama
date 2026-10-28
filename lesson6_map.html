@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dd7282a8102b9ce2536eeb2cca9dabfc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_dd7282a8102b9ce2536eeb2cca9dabfc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dd7282a8102b9ce2536eeb2cca9dabfc = L.map(
+                "map_dd7282a8102b9ce2536eeb2cca9dabfc",
+                {
+                    center: [9.01, -79.48],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7936b2c0d8600f6d9a361f9ff5024efc = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7936b2c0d8600f6d9a361f9ff5024efc.addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var marker_29c9e01d6d094c596fbd675f62b0b83b = L.marker(
+                [8.97435, -79.55264],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var icon_c7b115a33200df684ad56571cabd9795 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_29c9e01d6d094c596fbd675f62b0b83b.bindTooltip(
+                `<div>
+                     Depot: Depot - Albrook Mall (Albrook)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_29c9e01d6d094c596fbd675f62b0b83b.setIcon(icon_c7b115a33200df684ad56571cabd9795);
+            
+    
+            var marker_c496bf353c0429c75dbfddbc1d2d1771 = L.marker(
+                [9.02892, -79.52136],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_5d6a73a05510aef301560b82d8cb7053 = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    1\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_c496bf353c0429c75dbfddbc1d2d1771.bindTooltip(
+                `<div>
+                     1. USMA (Bethania / El Dorado)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c496bf353c0429c75dbfddbc1d2d1771.setIcon(div_icon_5d6a73a05510aef301560b82d8cb7053);
+            
+    
+            var marker_2fd959531a8866cc03b0a9310543aa53 = L.marker(
+                [9.05208, -79.50827],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_abd52d2a404c3690672681b878293b14 = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    2\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_2fd959531a8866cc03b0a9310543aa53.bindTooltip(
+                `<div>
+                     2. Los Andes Mall (San Miguelito)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2fd959531a8866cc03b0a9310543aa53.setIcon(div_icon_abd52d2a404c3690672681b878293b14);
+            
+    
+            var marker_2c82e90a001c4109c51058b2b4872ba2 = L.marker(
+                [9.07022, -79.42422],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_23123f3db2aafc36fd28664c722ddfa5 = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    3\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_2c82e90a001c4109c51058b2b4872ba2.bindTooltip(
+                `<div>
+                     3. Centro de Salud de Pedregal (Pedregal)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2c82e90a001c4109c51058b2b4872ba2.setIcon(div_icon_23123f3db2aafc36fd28664c722ddfa5);
+            
+    
+            var marker_b0305ddc6efa0912732b8ba84f59fd9a = L.marker(
+                [9.06909, -79.38301],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_aecbdb959ab5b93dccb841d400407af4 = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    4\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_b0305ddc6efa0912732b8ba84f59fd9a.bindTooltip(
+                `<div>
+                     4. Aeropuerto de Tocumen (Tocumen)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b0305ddc6efa0912732b8ba84f59fd9a.setIcon(div_icon_aecbdb959ab5b93dccb841d400407af4);
+            
+    
+            var marker_d208837aa006007540040c4f3ba3442d = L.marker(
+                [9.03586, -79.4695],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_a1f21075379e61845ba086512f477b25 = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    5\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_d208837aa006007540040c4f3ba3442d.bindTooltip(
+                `<div>
+                     5. Estadio Rommel Fernandez (Juan Diaz)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d208837aa006007540040c4f3ba3442d.setIcon(div_icon_a1f21075379e61845ba086512f477b25);
+            
+    
+            var marker_b967a9447953e37edaee4ee43ef44f6c = L.marker(
+                [9.01483, -79.48012],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_a8c1b9725e7bd530272593f84be28bd4 = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    6\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_b967a9447953e37edaee4ee43ef44f6c.bindTooltip(
+                `<div>
+                     6. Parque Costa del Este (Costa del Este)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b967a9447953e37edaee4ee43ef44f6c.setIcon(div_icon_a8c1b9725e7bd530272593f84be28bd4);
+            
+    
+            var marker_5fae2f77850a462aad6c81471229aa11 = L.marker(
+                [8.97536, -79.5273],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_74d6d70a8ad8b37735a032fb31e5560d = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    7\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_5fae2f77850a462aad6c81471229aa11.bindTooltip(
+                `<div>
+                     7. Parque Urraca (Bella Vista)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5fae2f77850a462aad6c81471229aa11.setIcon(div_icon_74d6d70a8ad8b37735a032fb31e5560d);
+            
+    
+            var marker_8878d078458ac9bd6c7f9d510c227b71 = L.marker(
+                [8.96877, -79.53215],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_771b2cb22a20735ff5709be2bb290890 = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    8\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_8878d078458ac9bd6c7f9d510c227b71.bindTooltip(
+                `<div>
+                     8. Hospital del Nino (Curundu)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8878d078458ac9bd6c7f9d510c227b71.setIcon(div_icon_771b2cb22a20735ff5709be2bb290890);
+            
+    
+            var marker_590ccbef226b86083b353b09efc4d642 = L.marker(
+                [8.95246, -79.53472],
+                {
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var div_icon_624bbcf5a2dceb5002bfa59e87e0d48e = L.divIcon({
+  "html": "\n                \u003cdiv style=\"background:#1f6feb;color:white;border-radius:50%;\n                            width:24px;height:24px;text-align:center;line-height:24px;\n                            font-weight:bold;font-size:13px;border:2px solid white;\"\u003e\n                    9\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+            marker_590ccbef226b86083b353b09efc4d642.bindTooltip(
+                `<div>
+                     9. Plaza de la Independencia (Casco)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_590ccbef226b86083b353b09efc4d642.setIcon(div_icon_624bbcf5a2dceb5002bfa59e87e0d48e);
+            
+    
+            var feature_group_5ca38fcf3675e4ffe2c7c2a927822749 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_0fa37a377822ee8731a91cdc5f0872cc = L.polyline(
+                [[8.97435, -79.55264], [9.02892, -79.52136], [9.05208, -79.50827], [9.07022, -79.42422], [9.06909, -79.38301], [9.03586, -79.4695], [9.01483, -79.48012], [8.97536, -79.5273], [8.96877, -79.53215], [8.95246, -79.53472], [8.97435, -79.55264]],
+                {"bubblingMouseEvents": true, "color": "#1f6feb", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f6feb", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_5ca38fcf3675e4ffe2c7c2a927822749);
+        
+    
+            feature_group_5ca38fcf3675e4ffe2c7c2a927822749.addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+        
+    
+            var feature_group_c98af1345246e778370f7eb7eeb091f7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_468284a427315cc3407723ee11a922ed = L.polyline(
+                [[8.97435, -79.55264], [9.06909, -79.38301], [9.03586, -79.4695], [8.97536, -79.5273], [9.02892, -79.52136], [9.05208, -79.50827], [9.01483, -79.48012], [9.07022, -79.42422], [8.95246, -79.53472], [8.96877, -79.53215], [8.97435, -79.55264]],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": "6", "dashOffset": null, "fill": false, "fillColor": "gray", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c98af1345246e778370f7eb7eeb091f7);
+        
+    
+            var layer_control_b4e092927a8ea121ac11ea704c3cd23d_layers = {
+                base_layers : {
+                    "esriworldstreetmap" : tile_layer_7936b2c0d8600f6d9a361f9ff5024efc,
+                },
+                overlays :  {
+                    "GA best route (49.4 km)" : feature_group_5ca38fcf3675e4ffe2c7c2a927822749,
+                    "A random route (85.7 km)" : feature_group_c98af1345246e778370f7eb7eeb091f7,
+                },
+            };
+            let layer_control_b4e092927a8ea121ac11ea704c3cd23d = L.control.layers(
+                layer_control_b4e092927a8ea121ac11ea704c3cd23d_layers.base_layers,
+                layer_control_b4e092927a8ea121ac11ea704c3cd23d_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_dd7282a8102b9ce2536eeb2cca9dabfc);
+
+        
+</script>
+</html>
