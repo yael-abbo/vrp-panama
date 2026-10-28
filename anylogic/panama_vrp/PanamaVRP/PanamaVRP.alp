@@ -171,6 +171,21 @@ startGeneration();]]></StartupCode>
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
+					<Id>1793400000019</Id>
+					<Name><![CDATA[currentAvg]]></Name>
+					<X>1500</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
 					<Id>1793211954404</Id>
 					<Name><![CDATA[bestFitness]]></Name>
 					<X>350</X><Y>690</Y>
@@ -472,6 +487,7 @@ if (trucksHome == trucks.size()) {
 List<Truck> ranked = sortAscending(trucks, t -> t.fitness);   // fastest first
 Truck best = ranked.get(0);
 double avg = average(trucks, t -> t.fitness);
+currentAvg = avg;
 
 if (best.fitness < bestFitness) {
     bestFitness = best.fitness;
@@ -479,6 +495,12 @@ if (best.fitness < bestFitness) {
 }
 traceln("Generation " + generation + ":  best = " + best.fitness
         + " min   average = " + avg + " min");
+
+// --- Update the dashboard ---
+fitnessPlot.updateData();
+txtBest.setText(String.format("%.1f min", bestFitness));
+txtGen.setText(generation + " / " + GENERATIONS);
+txtAvg.setText(String.format("%.1f min", avg));
 
 // --- 2. Stop if we're done ---
 if (generation == GENERATIONS) {
@@ -763,18 +785,132 @@ return r;]]></Body>
 					<Latitude>9.01</Latitude>
 					<Longitude>-79.48</Longitude>
                 </EmbeddedObjectPresentation>
+				<Rectangle>
+					<Id>1793400000005</Id>
+					<Name><![CDATA[bgRect]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>1440</Width>
+					<Height>820</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-15788246</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<RoundedRectangle>
+					<Id>1793400000006</Id>
+					<Name><![CDATA[cardMap]]></Name>
+					<X>24</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>900</Width>
+					<Height>716</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-14800581</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>14</ArcRadius>
+				</RoundedRectangle>
+				<RoundedRectangle>
+					<Id>1793400000007</Id>
+					<Name><![CDATA[cardStats]]></Name>
+					<X>944</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>472</Width>
+					<Height>110</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-14800581</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>14</ArcRadius>
+				</RoundedRectangle>
+				<RoundedRectangle>
+					<Id>1793400000008</Id>
+					<Name><![CDATA[cardChart]]></Name>
+					<X>944</X><Y>206</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>472</Width>
+					<Height>330</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-14800581</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>14</ArcRadius>
+				</RoundedRectangle>
+				<RoundedRectangle>
+					<Id>1793400000009</Id>
+					<Name><![CDATA[cardControls]]></Name>
+					<X>944</X><Y>552</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>472</Width>
+					<Height>244</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-14800581</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>14</ArcRadius>
+				</RoundedRectangle>
 				<GISMap>
 					<Id>1793205124346</Id>
 					<Name><![CDATA[map]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>36</X><Y>92</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>1000</Width>
-					<Height>600</Height>
+					<Width>876</Width>
+					<Height>692</Height>
 					<GISShapes>
 					</GISShapes>
 					<Latitude>9.01</Latitude>
@@ -865,6 +1001,275 @@ return r;]]></Body>
 			</Presentation>
 
 				</GISMap>
+				<Text>
+					<Id>1793400000010</Id>
+					<Name><![CDATA[txtTitle]]></Name>
+					<X>24</X><Y>22</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1906448</Color>
+					<Text><![CDATA[Panama City Route Optimizer]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>24</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793400000011</Id>
+					<Name><![CDATA[txtSubtitle]]></Name>
+					<X>24</X><Y>54</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-7035976</Color>
+					<Text><![CDATA[Genetic algorithm  ·  9 stops  ·  depot: Albrook Mall]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>13</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793400000012</Id>
+					<Name><![CDATA[lblBest]]></Name>
+					<X>964</X><Y>98</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-7035976</Color>
+					<Text><![CDATA[BEST ROUTE]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>11</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793400000013</Id>
+					<Name><![CDATA[lblGen]]></Name>
+					<X>1116</X><Y>98</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-7035976</Color>
+					<Text><![CDATA[GENERATION]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>11</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793400000014</Id>
+					<Name><![CDATA[lblAvg]]></Name>
+					<X>1268</X><Y>98</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-7035976</Color>
+					<Text><![CDATA[POPULATION AVG]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>11</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793400000015</Id>
+					<Name><![CDATA[txtBest]]></Name>
+					<X>964</X><Y>122</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-13773633</Color>
+					<Text><![CDATA[–]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>26</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793400000016</Id>
+					<Name><![CDATA[txtGen]]></Name>
+					<X>1116</X><Y>122</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1906448</Color>
+					<Text><![CDATA[0]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>26</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793400000017</Id>
+					<Name><![CDATA[txtAvg]]></Name>
+					<X>1268</X><Y>122</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-278748</Color>
+					<Text><![CDATA[–]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>26</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793400000018</Id>
+					<Name><![CDATA[txtControlsHint]]></Name>
+					<X>964</X><Y>572</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-7035976</Color>
+					<Text><![CDATA[Controls coming in Part D]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>13</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+    			<Plot>
+					<Id>1793400000001</Id>
+					<Name><![CDATA[fitnessPlot]]></Name>
+					<X>956</X><Y>222</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>false</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1793400000002</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1793145600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>448</Width>
+					<Height>304</Height>
+					<BackgroundColor>-14800581</BackgroundColor>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>36</YOffset>
+						<Width>378</Width>
+						<Height>210</Height>
+						<BackgroundColor>-14800581</BackgroundColor>
+						<BorderColor>-13418155</BorderColor>
+						<GridColor>-13418155</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-7035976</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-7035976</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Best route (min)]]></Title>
+					<Id>1793400000003</Id>
+					<Expression><![CDATA[bestData]]></Expression>
+					<Color>-13773633</Color>
+					<Expression2><![CDATA[bestFitness]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[generation]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Population average (min)]]></Title>
+					<Id>1793400000004</Id>
+					<Expression><![CDATA[avgData]]></Expression>
+					<Color>-278748</Color>
+					<Expression2><![CDATA[currentAvg]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>1.5</LineWidth>
+						<HorizontalAxisExpression><![CDATA[generation]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<SamplesToKeep>1000</SamplesToKeep>
+					<HorScaleFromExpression><![CDATA[0]]></HorScaleFromExpression>
+					<HorScaleToExpression><![CDATA[1]]></HorScaleToExpression>
+					<HorScaleType>AUTO</HorScaleType>
+    			</Plot>
 			</Presentation>
 
 				</Level>
@@ -2075,7 +2480,7 @@ moveTo(main.stops.get(route.get(0)));   // drive to it]]></Body>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
 				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
-				<Title><![CDATA[PanamaVRP : Simulation]]></Title>
+				<Title><![CDATA[Panama City Route Optimizer]]></Title>
 				<EnableDeveloperPanel>true</EnableDeveloperPanel>
 				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
 				<RealTimeScale>1.0</RealTimeScale>
