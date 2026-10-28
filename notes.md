@@ -124,3 +124,9 @@
 - Sliders linked to parameters: sliderPop -> POP_SIZE (10-100), sliderGen -> GENERATIONS (20-500), sliderMut -> MUTATION_RATE (0-50%). Value labels use dynamic text (TextCode).
 - The GA no longer starts on startup. "Run optimization" button (runButton, OnClick) calls startOptimization(): locks sliders, grays the button, creates POP_SIZE trucks, startGeneration().
 - 'started' (boolean) prevents starting twice; button text = started ? "Running..." : "Run optimization".
+
+## Lesson 11 - Stop labels
+- Each Stop has a variable visitOrder; drawBestRoute() sets st.visitOrder = i + 1 for the current best route.
+- Label next to each dot (dynamic text): (visitOrder > 0 ? visitOrder + "  " : "") + stopName. Depot labelled "Albrook (depot)".
+- Button text: "Run optimization" -> "Running..." -> "Done".
+- Routing back to straight lines (real roads skipped for now).
