@@ -22,15 +22,15 @@
 depot.jumpTo(8.97435, -79.55264);
 
 // The 9 stops: name, latitude, longitude
-add_stops("Plaza de la Independencia",   8.95246, -79.53472);
-add_stops("Hospital del Nino",           8.96877, -79.53215);
-add_stops("Parque Urraca",               8.97536, -79.52730);
+add_stops("Casco Viejo",                 8.95246, -79.53472);
+add_stops("Hospital del Niño",           8.96877, -79.53215);
+add_stops("Parque Urracá",               8.97536, -79.52730);
 add_stops("USMA",                        9.02892, -79.52136);
 add_stops("Los Andes Mall",              9.05208, -79.50827);
-add_stops("Parque Costa del Este",       9.01483, -79.48012);
-add_stops("Estadio Rommel Fernandez",    9.03586, -79.46950);
-add_stops("Centro de Salud de Pedregal", 9.07022, -79.42422);
-add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);
+add_stops("Costa del Este",              9.01483, -79.48012);
+add_stops("Rommel Fernández",            9.03586, -79.46950);
+add_stops("Pedregal",                    9.07022, -79.42422);
+add_stops("Tocumen Airport",             9.06909, -79.38301);
 
 // The GA starts when you click "Run optimization" (see startOptimization)]]></StartupCode>
 			<Generic>false</Generic>
@@ -2058,7 +2058,7 @@ return r;]]></Body>
 						<Size>12</Size>
 						<Style>1</Style>
 					</Font>
-					<Alignment>LEFT</Alignment>
+					<Alignment>RIGHT</Alignment>
 				</Text>
 			</Presentation>
 

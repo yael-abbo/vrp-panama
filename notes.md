@@ -130,3 +130,4 @@
 - Label next to each dot (dynamic text): (visitOrder > 0 ? visitOrder + "  " : "") + stopName. Depot labelled "Albrook (depot)".
 - Button text: "Run optimization" -> "Running..." -> "Done".
 - Routing back to straight lines (real roads skipped for now).
+- Shorter stop names (Casco Viejo, Pedregal, Tocumen Airport, Rommel Fernández, Costa del Este) + accents; depot label moved to the left of its dot so labels don't overlap.
