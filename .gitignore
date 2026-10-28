@@ -9,3 +9,4 @@ venv/
 anylogic/original/
 # AnyLogic build cache
 cache/
+*.alp.autosave

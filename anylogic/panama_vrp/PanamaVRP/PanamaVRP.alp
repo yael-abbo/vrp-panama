@@ -30,7 +30,18 @@ add_stops("Los Andes Mall",              9.05208, -79.50827);
 add_stops("Parque Costa del Este",       9.01483, -79.48012);
 add_stops("Estadio Rommel Fernandez",    9.03586, -79.46950);
 add_stops("Centro de Salud de Pedregal", 9.07022, -79.42422);
-add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);]]></StartupCode>
+add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);
+
+// One truck with a random route
+Truck t = add_trucks();
+ArrayList<Integer> r = new ArrayList<>();
+for (int i = 0; i < stops.size(); i++) {
+    r.add(i);                                        // [0, 1, 2, ..., 8]
+}
+Collections.shuffle(r, getDefaultRandomGenerator()); // random order
+t.route = r;
+t.startTrip();
+]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1793204945525</Id>
@@ -239,6 +250,54 @@ add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);]]></StartupCode>
 					<QuantityColumn>
 					</QuantityColumn>
 				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1793206702455</Id>
+					<Name><![CDATA[trucks]]></Name>
+					<X>380</X><Y>650</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<PresentationId>1793206702457</PresentationId>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[panamavrp]]></PackageName>
+						<ClassName><![CDATA[Truck]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[panamavrp]]></PackageName>
+							<ClassName><![CDATA[Truck]]></ClassName>
+							<ItemName><![CDATA[1793206702430]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+					</Parameters>
+					<ReplicationFlag>true</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>
+					<InitialLocationType>XYZ</InitialLocationType>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<Id>1793206702453</Id>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
 			</EmbeddedObjects>
 
 			<Presentation>
@@ -279,6 +338,25 @@ add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);]]></StartupCode>
 					<Id>1793206257857</Id>
 					<Name><![CDATA[depot_presentation]]></Name>
 					<X>450</X><Y>800</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>9.01</Latitude>
+					<Longitude>-79.48</Longitude>
+                </EmbeddedObjectPresentation>
+                <EmbeddedObjectPresentation>
+                    <InGis>true</InGis>
+					<Id>1793206702457</Id>
+					<Name><![CDATA[trucks_presentation]]></Name>
+					<X>480</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -359,6 +437,25 @@ add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);]]></StartupCode>
 					<Id>1793206257857</Id>
 					<Name><![CDATA[depot_presentation]]></Name>
 					<X>450</X><Y>800</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>9.01</Latitude>
+					<Longitude>-79.48</Longitude>
+				</EmbeddedObjectPresentationGIS>
+				<EmbeddedObjectPresentationGIS>
+                    <InGis>true</InGis>
+					<Id>1793206702457</Id>
+					<Name><![CDATA[trucks_presentation]]></Name>
+					<X>480</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1212,6 +1309,274 @@ add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);]]></StartupCode>
 			</Presentation>
 
 		</ActiveObjectClass>
+		<!--   =========   Active Object Class   ========  -->
+		<ActiveObjectClass>
+			<Id>1793206702427</Id>
+			<Name><![CDATA[Truck]]></Name>
+			<Generic>false</Generic>
+			<GenericParameter>
+				<Id>1793206702430</Id>
+				<Name><![CDATA[1793206702430]]></Name>
+				<GenericParameterValue Class="CodeValue">
+					<Code><![CDATA[T extends Agent]]></Code>
+				</GenericParameterValue>
+				<GenericParameterLabel><![CDATA[Generic parameter:]]></GenericParameterLabel>
+			</GenericParameter>
+			<FlowChartsUsage>ENTITY</FlowChartsUsage>
+			<SamplesToKeep>100</SamplesToKeep>
+			<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>
+			<ElementsLimitValue>100</ElementsLimitValue>
+			<MakeDefaultViewArea>true</MakeDefaultViewArea>
+			<SceneGridColor/>
+			<SceneBackgroundColor>-4144960</SceneBackgroundColor>
+            <EnvironmentResourceRef></EnvironmentResourceRef>
+            <EnvironmentType>NONE</EnvironmentType>
+            <EnvironmentRotationX>0</EnvironmentRotationX>
+            <EnvironmentRotationY>0</EnvironmentRotationY>
+            <EnvironmentRotationZ>0</EnvironmentRotationZ>
+            <EnvironmentIntensity>1</EnvironmentIntensity>
+			<AgentProperties>
+				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
+				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
+				<RotateAnimationVertically>false</RotateAnimationVertically>
+				<VelocityCode Class="CodeUnitValue">
+					<Code><![CDATA[40]]></Code>
+					<Unit Class="SpeedUnits"><![CDATA[KPH]]></Unit>
+				</VelocityCode>
+				<OnArrival><![CDATA[nextIndex++;
+if (nextIndex < route.size()) {
+    moveTo(main.stops.get(route.get(nextIndex)));   // go to the next stop
+} else if (nextIndex == route.size()) {
+    moveTo(main.depot);                              // all stops done: go home
+} else {
+    fitness = time() - startTime;                    // back at Albrook: score it
+    traceln("Route " + route + " took " + fitness + " minutes");
+}]]></OnArrival>
+				<MessageType><![CDATA[Object]]></MessageType>
+				<PhysicalLength Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalLength>
+				<PhysicalWidth Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalWidth>
+				<PhysicalHeight Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalHeight>
+			</AgentProperties>
+			<EnvironmentProperties>
+				<EnableSteps>false</EnableSteps>
+				<StepDurationCode Class="CodeUnitValue">
+					<Code><![CDATA[1.0]]></Code>
+					<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+				</StepDurationCode>
+				<SpaceType>CONTINUOUS</SpaceType>
+				<WidthCode><![CDATA[500]]></WidthCode>
+				<HeightCode><![CDATA[500]]></HeightCode>
+				<ZHeightCode><![CDATA[0]]></ZHeightCode>
+				<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+				<RowsCountCode><![CDATA[100]]></RowsCountCode>
+				<NeigborhoodType>MOORE</NeigborhoodType>
+				<LayoutType>USER_DEF</LayoutType>
+				<NetworkType>USER_DEF</NetworkType>
+				<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+				<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+				<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+				<MCode><![CDATA[10]]></MCode>
+				<LineStyle>SOLID</LineStyle>
+				<LineWidth>1</LineWidth>
+				<LineColor>-16777216</LineColor>
+				<LineZOrder>UNDER_AGENTS</LineZOrder>
+				<LineArrow>NONE</LineArrow>
+				<LineArrowPosition>END</LineArrowPosition>
+			</EnvironmentProperties>
+			<DatasetsCreationProperties>
+				<AutoCreate>true</AutoCreate>
+					<Id>1793206702426</Id>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1793260800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+			</DatasetsCreationProperties>
+			<ScaleRuler>
+				<Id>1793206702428</Id>
+				<Name><![CDATA[scale]]></Name>
+				<X>0</X><Y>-150</Y>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>false</PresentationFlag>
+				<ShowLabel>false</ShowLabel>
+				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+				<Length>100</Length>
+				<Rotation>0</Rotation>
+				<ScaleType>BASED_ON_LENGTH</ScaleType>
+				<ModelLength>10</ModelLength>
+				<LengthUnits>METER</LengthUnits>
+				<Scale>10</Scale>
+				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
+			</ScaleRuler>
+			<CurrentLevel>1793206702431</CurrentLevel>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1793206745543</Id>
+					<Name><![CDATA[route]]></Name>
+					<X>170</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[ArrayList<Integer>]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new ArrayList<Integer>()]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793206751984</Id>
+					<Name><![CDATA[nextIndex]]></Name>
+					<X>390</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793206753851</Id>
+					<Name><![CDATA[startTime]]></Name>
+					<X>170</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793206755285</Id>
+					<Name><![CDATA[fitness]]></Name>
+					<X>350</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+			</Variables>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1793206872625</Id>
+					<Name><![CDATA[startTrip]]></Name>
+					<X>310</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[setLocation(main.depot);          // put the truck at Albrook
+startTime = time();               // remember when we left
+nextIndex = 0;                    // start at the first stop of the route
+moveTo(main.stops.get(route.get(0)));   // drive to it]]></Body>
+				</Function>
+			</Functions>
+
+			<ContainerLinks>
+				<ContainerLink>
+					<Id>1793206702467</Id>
+					<Name><![CDATA[main]]></Name>
+					<X>50</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[panamavrp]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+					</ActiveObjectClass>
+				</ContainerLink>
+			</ContainerLinks>
+
+			<Presentation>
+				<Level>
+					<Id>1793206702431</Id>
+					<Name><![CDATA[level]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
+			<Presentation>
+				<Figure3D>
+					<Id>1793206702442</Id>
+					<Name><![CDATA[truck]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<X>0</X><Y>0</Y><Z>0</Z>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ResourceReference>
+						<PackageName><![CDATA[panamavrp]]></PackageName>
+						<ClassName><![CDATA[3d/truck.dae]]></ClassName>
+					</ResourceReference>
+					<ColorTable>
+						<ColorMapping>
+							<Name><![CDATA[Material__2__Surf]]></Name>
+							<OriginalColor>-3403008</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[Material__1__Surf]]></Name>
+							<OriginalColor>-11908534</OriginalColor>
+						</ColorMapping>
+						<ColorMapping>
+							<Name><![CDATA[Material__3__Surf]]></Name>
+							<OriginalColor>-3618616</OriginalColor>
+						</ColorMapping>
+					</ColorTable>
+					<AutoScale>true</AutoScale>
+					<Scale>1.0</Scale>
+					<Rotation>0.0</Rotation>
+					<AxisOrder>YZX_AXIS_ORDER</AxisOrder>
+					<SelectedAnimationPose></SelectedAnimationPose>
+					<ApplyShading>true</ApplyShading>
+					<InternalLighting>OFF</InternalLighting>
+					<IgnoreSceneLights>false</IgnoreSceneLights>
+				</Figure3D>
+			</Presentation>
+
+				</Level>
+			</Presentation>
+
+		</ActiveObjectClass>
 	</ActiveObjectClasses>
 	<DifferentialEquationsMethod>EULER</DifferentialEquationsMethod>
 	<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
@@ -1318,6 +1683,14 @@ add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);]]></StartupCode>
 			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
+	<ModelResources>
+		<Resource>
+			<Id>1793206702458</Id>
+			<Path><![CDATA[3d/truck.dae]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+	</ModelResources>
     <RequiredLibraryReference>
 		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
 		<VersionMajor>1</VersionMajor>

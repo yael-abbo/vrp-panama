@@ -69,3 +69,21 @@
 - In both, the average line sticks to the best line -> the population is almost all clones. His "keep only the best survivors" squeezes out diversity; progress then waits for lucky mutations (the staircase).
 - Our Python kept the average ~3 km above the best (diversity alive) thanks to tournament + only 2 elites.
 - His map draws straight lines between stops, but fitness is real road driving time. What you see != what's measured.
+
+## Lesson 8 - My own AnyLogic model (anylogic/panama_vrp/PanamaVRP)
+- New model PanamaVRP, time unit = minutes.
+- GIS Map centred on 9.01, -79.48 (Panama City), scale 150000 ("Center and scale" section). Routing = Straight lines for now.
+- Agent types: Depot (single agent 'depot'), Stop (population 'stops', parameters stopName, lat, lon - order matters for add_stops()).
+- Stop "On startup": jumpTo(lat, lon);   Main "On startup": depot.jumpTo(...) + nine add_stops(name, lat, lon) calls.
+- Java needs ";" at the end of every statement (Python doesn't). Error msg: top line = what, first "at" line = where.
+- Opening/zooming the map in the editor is awkward; it's easier to set lat/lon/scale in "Center and scale".
+
+## Lesson 9 - One truck drives one route
+- Truck agent: variables route (ArrayList<Integer>), nextIndex, startTime, fitness. Speed 40 km/h (placeholder, so minutes = km x 1.5).
+- startTrip(): setLocation(depot), startTime = time(), moveTo(first stop).
+- "On arrival to target location": next stop -> or home -> or (if home) fitness = time() - startTime; traceln(...).
+- AnyLogic stops are 0-8 (population index); Python stops are 1-9 (depot = 0). Add 1 to compare.
+- Random route: list 0..8 + Collections.shuffle(r, getDefaultRandomGenerator()) (AnyLogic's seeded random = like random.seed).
+- Check: route [3,4,1,7,5,8,2,6,0] took 149.6 min in AnyLogic. Python says 99.9 km = 149.9 min. 0.2% apart - AnyLogic measures distance on the globe slightly differently than haversine. AnyLogic and Python agree.
+- Constant speed doesn't change which route is best; with real roads (different speeds) it will.
+- zsh (%) vs Python (>>>): Python code goes in python3 or python3 -c "...".
