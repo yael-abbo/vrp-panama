@@ -32,12 +32,7 @@ add_stops("Estadio Rommel Fernandez",    9.03586, -79.46950);
 add_stops("Centro de Salud de Pedregal", 9.07022, -79.42422);
 add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);
 
-// Generation 0: POP_SIZE trucks with random routes
-for (int i = 0; i < POP_SIZE; i++) {
-    Truck t = add_trucks();
-    t.route = randomRoute();
-}
-startGeneration();]]></StartupCode>
+// The GA starts when you click "Run optimization" (see startOptimization)]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1793204945525</Id>
@@ -167,6 +162,21 @@ startGeneration();]]></StartupCode>
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793700000013</Id>
+					<Name><![CDATA[started]]></Name>
+					<X>1870</X><Y>810</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -472,6 +482,34 @@ return r;]]></Body>
 for (Truck t : trucks) {
 	t.startTrip();
 }]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1793700000014</Id>
+					<Name><![CDATA[startOptimization]]></Name>
+					<X>2050</X><Y>950</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[if (started) {
+    return;                         // already running: ignore extra clicks
+}
+started = true;
+
+// Lock the settings while the GA runs
+sliderPop.setEnabled(false);
+sliderGen.setEnabled(false);
+sliderMut.setEnabled(false);
+runButton.setFillColor(new Color(51, 65, 85));
+
+// Generation 0: POP_SIZE trucks with random routes
+for (int i = 0; i < POP_SIZE; i++) {
+    Truck t = add_trucks();
+    t.route = randomRoute();
+}
+startGeneration();]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -1219,9 +1257,9 @@ return r;]]></Body>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1793400000018</Id>
-					<Name><![CDATA[txtControlsHint]]></Name>
-					<X>964</X><Y>572</Y>
+					<Id>1793700000002</Id>
+					<Name><![CDATA[lblSettings]]></Name>
+					<X>964</X><Y>566</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1231,13 +1269,260 @@ return r;]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-7035976</Color>
-					<Text><![CDATA[Controls coming in Part D]]></Text>
+					<Text><![CDATA[SETTINGS]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>11</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793700000003</Id>
+					<Name><![CDATA[lblPop]]></Name>
+					<X>964</X><Y>590</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1906448</Color>
+					<Text><![CDATA[Population]]></Text>
 					<Font>
 						<Name>Helvetica Neue</Name>
 						<Size>13</Size>
 						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793700000004</Id>
+					<Name><![CDATA[valPop]]></Name>
+					<X>1396</X><Y>590</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-13773633</Color>
+					<Text><![CDATA[]]></Text>
+					<TextCode><![CDATA[POP_SIZE + " trucks"]]></TextCode>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>13</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>
+					<Id>1793700000005</Id>
+					<Name><![CDATA[sliderPop]]></Name>
+					<X>964</X><Y>604</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="432" Height="26">
+                        <EmbeddedIcon>false</EmbeddedIcon>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[10]]></MinValue>
+						<MaxValue><![CDATA[100]]></MaxValue>
+						<Step><![CDATA[10]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>POP_SIZE</Link>
+					</ExtendedProperties>
+				</Control>
+				<Text>
+					<Id>1793700000006</Id>
+					<Name><![CDATA[lblGenS]]></Name>
+					<X>964</X><Y>636</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1906448</Color>
+					<Text><![CDATA[Generations]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>13</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793700000007</Id>
+					<Name><![CDATA[valGen]]></Name>
+					<X>1396</X><Y>636</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-13773633</Color>
+					<Text><![CDATA[]]></Text>
+					<TextCode><![CDATA[GENERATIONS + ""]]></TextCode>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>13</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>
+					<Id>1793700000008</Id>
+					<Name><![CDATA[sliderGen]]></Name>
+					<X>964</X><Y>650</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="432" Height="26">
+                        <EmbeddedIcon>false</EmbeddedIcon>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[20]]></MinValue>
+						<MaxValue><![CDATA[500]]></MaxValue>
+						<Step><![CDATA[10]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>GENERATIONS</Link>
+					</ExtendedProperties>
+				</Control>
+				<Text>
+					<Id>1793700000009</Id>
+					<Name><![CDATA[lblMut]]></Name>
+					<X>964</X><Y>682</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1906448</Color>
+					<Text><![CDATA[Mutation rate]]></Text>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>13</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1793700000010</Id>
+					<Name><![CDATA[valMut]]></Name>
+					<X>1396</X><Y>682</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-13773633</Color>
+					<Text><![CDATA[]]></Text>
+					<TextCode><![CDATA[String.format("%.0f%%", MUTATION_RATE * 100)]]></TextCode>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>13</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>
+					<Id>1793700000011</Id>
+					<Name><![CDATA[sliderMut]]></Name>
+					<X>964</X><Y>696</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="432" Height="26">
+                        <EmbeddedIcon>false</EmbeddedIcon>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[0.5]]></MaxValue>
+						<Step><![CDATA[0.05]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>MUTATION_RATE</Link>
+					</ExtendedProperties>
+				</Control>
+				<RoundedRectangle>
+					<Id>1793700000001</Id>
+					<Name><![CDATA[runButton]]></Name>
+					<X>964</X><Y>728</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<OnClickCode><![CDATA[startOptimization();]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>432</Width>
+					<Height>36</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-13773633</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1793700000012</Id>
+					<Name><![CDATA[txtRun]]></Name>
+					<X>1180</X><Y>737</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-15788246</Color>
+					<Text><![CDATA[]]></Text>
+					<TextCode><![CDATA[started ? "Running..." : "Run optimization"]]></TextCode>
+					<Font>
+						<Name>Helvetica Neue</Name>
+						<Size>14</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
 				</Text>
     			<Plot>
 					<Id>1793400000001</Id>

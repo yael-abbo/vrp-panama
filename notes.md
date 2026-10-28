@@ -119,3 +119,8 @@
 - drawBestRoute(): runs only when a NEW best route is found. Hides the old shape, builds corner points (depot + stops in route order), draws a closed GISRegion with transparent fill and a 4px teal outline. "Closed" = includes the trip back to Albrook.
 - Icons: trucks = small amber dots (population, same color as the average line), stops = white dots, depot = coral dot. The 3D truck model was drawn ~1 km long on the map.
 - Dashboard height 796 to fit a laptop screen; Simulation -> Window -> "Maximized size" opens it full screen.
+
+## Lesson 11 - Part D: controls
+- Sliders linked to parameters: sliderPop -> POP_SIZE (10-100), sliderGen -> GENERATIONS (20-500), sliderMut -> MUTATION_RATE (0-50%). Value labels use dynamic text (TextCode).
+- The GA no longer starts on startup. "Run optimization" button (runButton, OnClick) calls startOptimization(): locks sliders, grays the button, creates POP_SIZE trucks, startGeneration().
+- 'started' (boolean) prevents starting twice; button text = started ? "Running..." : "Run optimization".
