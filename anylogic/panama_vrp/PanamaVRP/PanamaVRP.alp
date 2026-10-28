@@ -143,7 +143,7 @@ startGeneration();]]></StartupCode>
 				<Variable Class="PlainVariable">
 					<Id>1793211949602</Id>
 					<Name><![CDATA[generation]]></Name>
-					<X>350</X><Y>620</Y>
+					<X>1870</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -158,7 +158,7 @@ startGeneration();]]></StartupCode>
 				<Variable Class="PlainVariable">
 					<Id>1793211951737</Id>
 					<Name><![CDATA[trucksHome]]></Name>
-					<X>350</X><Y>650</Y>
+					<X>1870</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -188,7 +188,7 @@ startGeneration();]]></StartupCode>
 				<Variable Class="PlainVariable">
 					<Id>1793211954404</Id>
 					<Name><![CDATA[bestFitness]]></Name>
-					<X>350</X><Y>690</Y>
+					<X>1870</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -203,7 +203,7 @@ startGeneration();]]></StartupCode>
 				<Variable Class="PlainVariable">
 					<Id>1793211956925</Id>
 					<Name><![CDATA[bestRoute]]></Name>
-					<X>350</X><Y>730</Y>
+					<X>1870</X><Y>730</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -215,10 +215,25 @@ startGeneration();]]></StartupCode>
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793600000001</Id>
+					<Name><![CDATA[bestRouteShape]]></Name>
+					<X>1870</X><Y>770</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[GISRegion]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[null]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1793211744629</Id>
 					<Name><![CDATA[GENERATIONS]]></Name>
-					<X>190</X><Y>670</Y>
+					<X>1710</X><Y>670</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -242,7 +257,7 @@ startGeneration();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1793211742318</Id>
 					<Name><![CDATA[POP_SIZE]]></Name>
-					<X>190</X><Y>630</Y>
+					<X>1710</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -266,7 +281,7 @@ startGeneration();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1793211747495</Id>
 					<Name><![CDATA[TOURNAMENT_K]]></Name>
-					<X>190</X><Y>700</Y>
+					<X>1710</X><Y>700</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -290,7 +305,7 @@ startGeneration();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1793211750100</Id>
 					<Name><![CDATA[MUTATION_RATE]]></Name>
-					<X>190</X><Y>740</Y>
+					<X>1710</X><Y>740</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -314,7 +329,7 @@ startGeneration();]]></StartupCode>
 				<Variable Class="Parameter">
 					<Id>1793211752747</Id>
 					<Name><![CDATA[ELITE]]></Name>
-					<X>190</X><Y>780</Y>
+					<X>1710</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -342,7 +357,7 @@ startGeneration();]]></StartupCode>
 					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
 					<Id>1793212070368</Id>
 					<Name><![CDATA[randomRoute]]></Name>
-					<X>530</X><Y>640</Y>
+					<X>2050</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -359,7 +374,7 @@ return r;]]></Body>
 					<ReturnType><![CDATA[Truck]]></ReturnType>
 					<Id>1793212072935</Id>
 					<Name><![CDATA[tournament]]></Name>
-					<X>530</X><Y>670</Y>
+					<X>2050</X><Y>670</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -378,7 +393,7 @@ return winner;]]></Body>
 					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
 					<Id>1793212076963</Id>
 					<Name><![CDATA[orderedCrossover]]></Name>
-					<X>530</X><Y>700</Y>
+					<X>2050</X><Y>700</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -425,7 +440,7 @@ return new ArrayList<>(Arrays.asList(child));]]></Body>
 					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
 					<Id>1793212079870</Id>
 					<Name><![CDATA[swapMutation]]></Name>
-					<X>530</X><Y>730</Y>
+					<X>2050</X><Y>730</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -448,7 +463,7 @@ return r;]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1793212373562</Id>
 					<Name><![CDATA[startGeneration]]></Name>
-					<X>530</X><Y>760</Y>
+					<X>2050</X><Y>760</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -461,9 +476,42 @@ for (Truck t : trucks) {
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1793600000002</Id>
+					<Name><![CDATA[drawBestRoute]]></Name>
+					<X>2050</X><Y>910</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[// Hide the previous best route, if there was one
+if (bestRouteShape != null) {
+    bestRouteShape.setVisible(false);
+}
+
+// Corner points of the loop: depot first, then the stops in route order
+int n = bestRoute.size() + 1;
+double[] lats = new double[n];
+double[] lons = new double[n];
+lats[0] = depot.getLatitude();
+lons[0] = depot.getLongitude();
+for (int i = 0; i < bestRoute.size(); i++) {
+    Stop st = stops.get(bestRoute.get(i));
+    lats[i + 1] = st.lat;
+    lons[i + 1] = st.lon;
+}
+
+// A closed shape through those points = the full loop, back to the depot.
+// Transparent fill, teal outline.
+bestRouteShape = new GISRegion(map, true, lats, lons,
+        new Color(0, 0, 0, 0), new Color(45, 212, 191), 4.0,
+        LINE_STYLE_SOLID, "", 2412969.893281214);]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1793212416762</Id>
 					<Name><![CDATA[truckFinished]]></Name>
-					<X>530</X><Y>800</Y>
+					<X>2050</X><Y>800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -478,7 +526,7 @@ if (trucksHome == trucks.size()) {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1793212460846</Id>
 					<Name><![CDATA[nextGeneration]]></Name>
-					<X>530</X><Y>830</Y>
+					<X>2050</X><Y>830</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -492,6 +540,7 @@ currentAvg = avg;
 if (best.fitness < bestFitness) {
     bestFitness = best.fitness;
     bestRoute = new ArrayList<>(best.route);
+    drawBestRoute();
 }
 traceln("Generation " + generation + ":  best = " + best.fitness
         + " min   average = " + avg + " min");
@@ -541,7 +590,7 @@ startGeneration();]]></Body>
 					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
 					<Id>1793214066817</Id>
 					<Name><![CDATA[inversionMutation]]></Name>
-					<X>530</X><Y>870</Y>
+					<X>2050</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -562,7 +611,7 @@ return r;]]></Body>
 				<EmbeddedObject>
 					<Id>1793206215098</Id>
 					<Name><![CDATA[stops]]></Name>
-					<X>60</X><Y>630</Y>
+					<X>1580</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -619,7 +668,7 @@ return r;]]></Body>
 				<EmbeddedObject>
 					<Id>1793206257855</Id>
 					<Name><![CDATA[depot]]></Name>
-					<X>60</X><Y>670</Y>
+					<X>1580</X><Y>670</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -667,7 +716,7 @@ return r;]]></Body>
 				<EmbeddedObject>
 					<Id>1793206702455</Id>
 					<Name><![CDATA[trucks]]></Name>
-					<X>60</X><Y>650</Y>
+					<X>1580</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -744,8 +793,8 @@ return r;]]></Body>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>9.01</Latitude>
-					<Longitude>-79.48</Longitude>
+					<Latitude>9.015</Latitude>
+					<Longitude>-79.47</Longitude>
                 </EmbeddedObjectPresentation>
                 <EmbeddedObjectPresentation>
                     <InGis>true</InGis>
@@ -763,8 +812,8 @@ return r;]]></Body>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>9.01</Latitude>
-					<Longitude>-79.48</Longitude>
+					<Latitude>9.015</Latitude>
+					<Longitude>-79.47</Longitude>
                 </EmbeddedObjectPresentation>
                 <EmbeddedObjectPresentation>
                     <InGis>true</InGis>
@@ -782,8 +831,8 @@ return r;]]></Body>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>9.01</Latitude>
-					<Longitude>-79.48</Longitude>
+					<Latitude>9.015</Latitude>
+					<Longitude>-79.47</Longitude>
                 </EmbeddedObjectPresentation>
 				<Rectangle>
 					<Id>1793400000005</Id>
@@ -802,7 +851,7 @@ return r;]]></Body>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
 					<Width>1440</Width>
-					<Height>820</Height>
+					<Height>796</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-15788246</FillColor>
 					<FillMaterial>null</FillMaterial>
@@ -824,7 +873,7 @@ return r;]]></Body>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
 					<Width>900</Width>
-					<Height>716</Height>
+					<Height>692</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-14800581</FillColor>
 					<FillMaterial>null</FillMaterial>
@@ -893,7 +942,7 @@ return r;]]></Body>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
 					<Width>472</Width>
-					<Height>244</Height>
+					<Height>220</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-14800581</FillColor>
 					<FillMaterial>null</FillMaterial>
@@ -910,17 +959,17 @@ return r;]]></Body>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Width>876</Width>
-					<Height>692</Height>
+					<Height>668</Height>
 					<GISShapes>
 					</GISShapes>
-					<Latitude>9.01</Latitude>
-					<Longitude>-79.48</Longitude>
-					<Scale>150000</Scale>
+					<Latitude>9.015</Latitude>
+					<Longitude>-79.47</Longitude>
+					<Scale>65000</Scale>
 					<BorderColor>-4144960</BorderColor>
 					<FillColor>-1</FillColor>
 					<ShowTiles>true</ShowTiles>
-					<CustomTileURL>false</CustomTileURL>
-					<TileURL><![CDATA[https://a.tile.openstreetmap.org/[zoom]/[x]/[y].png]]></TileURL>				
+					<CustomTileURL>true</CustomTileURL>
+					<TileURL><![CDATA[https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/[zoom]/[y]/[x]]]></TileURL>				
 					<RouteProviderType>STRAIGHT</RouteProviderType>
 					<RouteNotFound>CREATE_STRAIGHT_LINE</RouteNotFound>
 					<TransportType>CAR</TransportType>
@@ -957,8 +1006,8 @@ return r;]]></Body>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>9.01</Latitude>
-					<Longitude>-79.48</Longitude>
+					<Latitude>9.015</Latitude>
+					<Longitude>-79.47</Longitude>
 				</EmbeddedObjectPresentationGIS>
 				<EmbeddedObjectPresentationGIS>
                     <InGis>true</InGis>
@@ -976,8 +1025,8 @@ return r;]]></Body>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>9.01</Latitude>
-					<Longitude>-79.48</Longitude>
+					<Latitude>9.015</Latitude>
+					<Longitude>-79.47</Longitude>
 				</EmbeddedObjectPresentationGIS>
 				<EmbeddedObjectPresentationGIS>
                     <InGis>true</InGis>
@@ -995,8 +1044,8 @@ return r;]]></Body>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>9.01</Latitude>
-					<Longitude>-79.48</Longitude>
+					<Latitude>9.015</Latitude>
+					<Longitude>-79.47</Longitude>
 				</EmbeddedObjectPresentationGIS>
 			</Presentation>
 
@@ -1478,10 +1527,10 @@ return r;]]></Body>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
 			<Presentation>
-				<Group>
-					<Id>1793206215079</Id>
-					<Name><![CDATA[store]]></Name>
-					<X>0</X><Y>0</Y>
+				<RoundedRectangle>
+					<Id>1793500000002</Id>
+					<Name><![CDATA[dot]]></Name>
+					<X>-5.5</X><Y>-5.5</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1489,244 +1538,18 @@ return r;]]></Body>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>2</LineWidth>
+					<LineColor>-14800581</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>11</Width>
+					<Height>11</Height>
 					<Rotation>0.0</Rotation>
-
-			<Presentation>
-				<Polyline>
-					<Id>1793206215081</Id>
-					<Name><![CDATA[_ps268]]></Name>
-					<X>0</X><Y>12</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>1342177280</FillColor>
+					<FillColor>-1906448</FillColor>
 					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>4</X><Y>2</Y><Z>0</Z></Point>
-					   <Point><X>16</X><Y>-4</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>-6</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206215083</Id>
-					<Name><![CDATA[_ps269]]></Name>
-					<X>0</X><Y>4</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-6690304</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>-6</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-12</Y><Z>0</Z></Point>
-					   <Point><X>-12</X><Y>-6</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206215085</Id>
-					<Name><![CDATA[_ps270]]></Name>
-					<X>-12</X><Y>6</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-8140800</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-8</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>-2</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>6</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206215087</Id>
-					<Name><![CDATA[_ps271]]></Name>
-					<X>0</X><Y>12</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-9986560</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>-6</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>-14</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-8</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206215089</Id>
-					<Name><![CDATA[_ps272]]></Name>
-					<X>-10</X><Y>7</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-12491776</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>10</X><Y>5</Y><Z>0</Z></Point>
-					   <Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>20</X><Y>-5</Y><Z>0</Z></Point>
-					   <Point><X>10</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-5</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Line>
-					<Id>1793206215091</Id>
-					<Name><![CDATA[_ps273]]></Name>
-					<X>2</X><Y>11</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-9986560</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<Dx>0</Dx>
-					<Dy>-6</Dy>
-					<Dz>0</Dz>
-				</Line>
-				<Line>
-					<Id>1793206215093</Id>
-					<Name><![CDATA[_ps274]]></Name>
-					<X>-2</X><Y>11</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-8140800</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<Dx>0</Dx>
-					<Dy>-6</Dy>
-					<Dz>0</Dz>
-				</Line>
-				<Polyline>
-					<Id>1793206215095</Id>
-					<Name><![CDATA[_ps275]]></Name>
-					<X>0</X><Y>12</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-14667264</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor/>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>-6</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>-14</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-20</Y><Z>0</Z></Point>
-					   <Point><X>-12</X><Y>-14</Y><Z>0</Z></Point>
-					   <Point><X>-12</X><Y>-6</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-			</Presentation>
-
-				</Group>
+					<ArcRadius>11</ArcRadius>
+				</RoundedRectangle>
 			</Presentation>
 
 				</Level>
@@ -1869,10 +1692,10 @@ return r;]]></Body>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
 			<Presentation>
-				<Group>
-					<Id>1793206257838</Id>
-					<Name><![CDATA[warehouse]]></Name>
-					<X>0</X><Y>0</Y>
+				<RoundedRectangle>
+					<Id>1793500000003</Id>
+					<Name><![CDATA[dot]]></Name>
+					<X>-8</X><Y>-8</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1880,226 +1703,18 @@ return r;]]></Body>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>2</LineWidth>
+					<LineColor>-1906448</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>16</Width>
+					<Height>16</Height>
 					<Rotation>0.0</Rotation>
-
-			<Presentation>
-				<Polyline>
-					<Id>1793206257840</Id>
-					<Name><![CDATA[_ps278]]></Name>
-					<X>-3</X><Y>12</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>1342177280</FillColor>
+					<FillColor>-770210</FillColor>
 					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>4</X><Y>2</Y><Z>0</Z></Point>
-					   <Point><X>20</X><Y>-6</Y><Z>0</Z></Point>
-					   <Point><X>16</X><Y>-8</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206257842</Id>
-					<Name><![CDATA[_ps279]]></Name>
-					<X>-15</X><Y>6</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-2313728</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-7</Y><Z>0</Z></Point>
-					   <Point><X>6</X><Y>-8</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>-1</Y><Z>0</Z></Point>
-					   <Point><X>12</X><Y>6</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206257844</Id>
-					<Name><![CDATA[_ps280]]></Name>
-					<X>-13</X><Y>7</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-8364032</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>8</X><Y>4</Y><Z>0</Z></Point>
-					   <Point><X>8</X><Y>-1</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-5</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206257846</Id>
-					<Name><![CDATA[_ps281]]></Name>
-					<X>-3</X><Y>12</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-3104256</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>16</X><Y>-8</Y><Z>0</Z></Point>
-					   <Point><X>16</X><Y>-15</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-7</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206257848</Id>
-					<Name><![CDATA[_ps282]]></Name>
-					<X>-3</X><Y>5</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-10496</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>16</X><Y>-8</Y><Z>0</Z></Point>
-					   <Point><X>10</X><Y>-15</Y><Z>0</Z></Point>
-					   <Point><X>-6</X><Y>-7</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206257850</Id>
-					<Name><![CDATA[_ps283]]></Name>
-					<X>-9</X><Y>-2</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-6794</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>16</X><Y>-8</Y><Z>0</Z></Point>
-					   <Point><X>10</X><Y>-7</Y><Z>0</Z></Point>
-					   <Point><X>-6</X><Y>1</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1793206257852</Id>
-					<Name><![CDATA[_ps284]]></Name>
-					<X>-3</X><Y>12</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-11913984</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor/>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>16</X><Y>-8</Y><Z>0</Z></Point>
-					   <Point><X>16</X><Y>-15</Y><Z>0</Z></Point>
-					   <Point><X>10</X><Y>-22</Y><Z>0</Z></Point>
-					   <Point><X>4</X><Y>-21</Y><Z>0</Z></Point>
-					   <Point><X>-12</X><Y>-13</Y><Z>0</Z></Point>
-					   <Point><X>-12</X><Y>-6</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-			</Presentation>
-
-				</Group>
+					<ArcRadius>16</ArcRadius>
+				</RoundedRectangle>
 			</Presentation>
 
 				</Level>
@@ -2330,44 +1945,29 @@ moveTo(main.stops.get(route.get(0)));   // drive to it]]></Body>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
 			<Presentation>
-				<Figure3D>
-					<Id>1793206702442</Id>
-					<Name><![CDATA[truck]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
+				<RoundedRectangle>
+					<Id>1793500000001</Id>
+					<Name><![CDATA[dot]]></Name>
+					<X>-3.5</X><Y>-3.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<X>0</X><Y>0</Y><Z>0</Z>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<ResourceReference>
-						<PackageName><![CDATA[panamavrp]]></PackageName>
-						<ClassName><![CDATA[3d/truck.dae]]></ClassName>
-					</ResourceReference>
-					<ColorTable>
-						<ColorMapping>
-							<Name><![CDATA[Material__2__Surf]]></Name>
-							<OriginalColor>-3403008</OriginalColor>
-						</ColorMapping>
-						<ColorMapping>
-							<Name><![CDATA[Material__1__Surf]]></Name>
-							<OriginalColor>-11908534</OriginalColor>
-						</ColorMapping>
-						<ColorMapping>
-							<Name><![CDATA[Material__3__Surf]]></Name>
-							<OriginalColor>-3618616</OriginalColor>
-						</ColorMapping>
-					</ColorTable>
-					<AutoScale>true</AutoScale>
-					<Scale>1.0</Scale>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-15788246</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>7</Width>
+					<Height>7</Height>
 					<Rotation>0.0</Rotation>
-					<AxisOrder>YZX_AXIS_ORDER</AxisOrder>
-					<SelectedAnimationPose></SelectedAnimationPose>
-					<ApplyShading>true</ApplyShading>
-					<InternalLighting>OFF</InternalLighting>
-					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+					<FillColor>-278748</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>7</ArcRadius>
+				</RoundedRectangle>
 			</Presentation>
 
 				</Level>
@@ -2495,14 +2095,6 @@ moveTo(main.stops.get(route.get(0)));   // drive to it]]></Body>
 			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
-	<ModelResources>
-		<Resource>
-			<Id>1793206702458</Id>
-			<Path><![CDATA[3d/truck.dae]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-			<Location>FILE_SYSTEM</Location>
-		</Resource>
-	</ModelResources>
     <RequiredLibraryReference>
 		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
 		<VersionMajor>1</VersionMajor>

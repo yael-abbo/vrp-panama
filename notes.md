@@ -104,3 +104,18 @@
 - With inversion (MUTATION_RATE 0.2, half swap / half inversion): stuck at 76.02 min from gen 15-29, ESCAPED at gen 30 -> 73.96 min.
   Best route [3,4,7,8,6,5,2,1,0] = Python [4,5,8,9,7,6,3,2,1] = the true best (49.36 km = 74.04 min in Python). AnyLogic found the optimum.
 - One run is one data point. For the thesis: repeat with different seeds and report how often it finds the best.
+
+## Lesson 11 - Dark dashboard (Parts A + B)
+- Palette: bg #0F172A, cards #1E293B, grid #334155, text #E2E8F0 / #94A3B8, best = teal #2DD4BF, average = amber #FBBF24, depot = coral #F43F5E.
+- Rule: bright colors only for things that mean something (route, chart lines, depot).
+- Layout: title bar, map card (left), number tiles + chart + controls cards (right). Canvas 1440 x 820.
+- Plot 'fitnessPlot' with auto-update OFF; nextGeneration calls fitnessPlot.updateData() once per generation (x = generation, y = bestFitness / currentAvg).
+- Tiles: txtBest/txtGen/txtAvg updated with .setText(String.format("%.1f min", x)).
+- Developer elements (parameters, variables, functions) moved to x > 1500, off the dashboard.
+- Map: zoom 65000, dark gray Esri tiles (custom tile URL).
+- Model uses a FIXED random seed (Simulation experiment -> Randomness), so every run gives the same result.
+
+## Lesson 11 - Part C: best route on the map + modern icons
+- drawBestRoute(): runs only when a NEW best route is found. Hides the old shape, builds corner points (depot + stops in route order), draws a closed GISRegion with transparent fill and a 4px teal outline. "Closed" = includes the trip back to Albrook.
+- Icons: trucks = small amber dots (population, same color as the average line), stops = white dots, depot = coral dot. The 3D truck model was drawn ~1 km long on the map.
+- Dashboard height 796 to fit a laptop screen; Simulation -> Window -> "Maximized size" opens it full screen.
