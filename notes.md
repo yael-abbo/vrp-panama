@@ -33,3 +33,13 @@
 - GA with selection + OX: 55.9 -> 49.9 km by gen 10. First time we beat the best random route. Crossover creates new routes.
 - But: it found 49.9 at gen 10 and then LOST it (gen 15 = 50.7). Nothing protects the best route. Fix: elitism (L5).
 - And: all 100 routes became clones by gen 15, stuck at 50.7. Nothing adds new variety. Fix: mutation (L5).
+
+## Lesson 5 - Mutation + elitism (full GA)
+- Swap mutation: pick 2 positions, swap their stops. Always stays a valid route. Happens to ~20% of children (MUTATION_RATE).
+- Elitism: copy the best 2 routes unchanged into the next generation, so the best answer can never be lost.
+- Full loop per generation: elitism -> tournament x2 -> ordered crossover -> maybe mutate -> repeat until 100 routes.
+- Result: found the true best (49.4 km) by gen 20. Diversity stayed around 12-20 routes instead of collapsing to 1.
+- The route it found is the brute-force route driven backwards: same loop, same km.
+- Reliability: 8 of 10 seeds found 49.4 km; 2 got stuck at 50.7 km. A GA gives a very good answer, not a guaranteed perfect one.
+- The dials: POP_SIZE, GENERATIONS, TOURNAMENT_K, MUTATION_RATE, ELITE.
+- Chart: lesson5_progress.png (best km per generation).
