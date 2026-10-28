@@ -50,3 +50,22 @@
 - Blue line = GA best route (49.4 km). Gray dashed line = a random route (85.7 km), off by default; switch it on in the corner box.
 - route_points() adds the depot at both ends and turns stop numbers into (lat, lon).
 - Lines are straight because our distances are straight-line. With road distances they'd follow streets.
+
+## Lesson 7 - Inside Felipe's AnyLogic model (MilkRun2)
+- Felipe's files live in anylogic/original/ and are NOT committed (it's his work; see .gitignore).
+- Agents: Main (everything), Manufacturer (depot), Supplier (stops), Truck (ONE truck = ONE route = one chromosome).
+- Population = 'trucks'. Every generation, every truck actually drives its route on real roads (GIS map, FASTEST routing).
+- Fitness = minutes driven (time()-startTime). Lower is better. Real road times, not straight-line km.
+- Generation loop (Main.nextGeneration): when all trucks are back -> draw best route -> keep the best populationSize trucks, delete the rest -> make offspring -> send "start".
+- Selection: parents picked completely at random. The pressure comes from "survivor selection": parents + children compete, only the best survive (strong elitism).
+- Crossover: start with p1's first 2 stops, then alternate parents: "what comes after my last stop in this parent?" If already used, pick a random unused stop.
+- Mutation (if it happens): 1/3 swap, 1/3 scramble (shuffle a chunk), 1/3 inversion (reverse a chunk).
+- Map is centred on Austin, Texas (30.31, -97.67).
+- Python vs AnyLogic: same GA idea, different choices. Ours = tournament + OX + swap + elitism 2, straight-line km.
+
+### Running Felipe's model
+- Run A (9 stops, pop 50, 300 gens, mutation 0.2, crossover 0.8): best drops ~290 -> ~227 min by gen ~20, then flat. Same shape as our Python run.
+- Run B (his defaults: 15 stops, pop 25, 1000 gens, mutation 0.1): "staircase" - long flat stretches, small drops, last improvement ~gen 690, ends ~268 min. 15 stops = ~1.3 trillion routes, much harder.
+- In both, the average line sticks to the best line -> the population is almost all clones. His "keep only the best survivors" squeezes out diversity; progress then waits for lucky mutations (the staircase).
+- Our Python kept the average ~3 km above the best (diversity alive) thanks to tournament + only 2 elites.
+- His map draws straight lines between stops, but fitness is real road driving time. What you see != what's measured.
