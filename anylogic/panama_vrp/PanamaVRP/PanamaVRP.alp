@@ -32,16 +32,12 @@ add_stops("Estadio Rommel Fernandez",    9.03586, -79.46950);
 add_stops("Centro de Salud de Pedregal", 9.07022, -79.42422);
 add_stops("Aeropuerto de Tocumen",       9.06909, -79.38301);
 
-// One truck with a random route
-Truck t = add_trucks();
-ArrayList<Integer> r = new ArrayList<>();
-for (int i = 0; i < stops.size(); i++) {
-    r.add(i);                                        // [0, 1, 2, ..., 8]
+// Generation 0: POP_SIZE trucks with random routes
+for (int i = 0; i < POP_SIZE; i++) {
+    Truck t = add_trucks();
+    t.route = randomRoute();
 }
-Collections.shuffle(r, getDefaultRandomGenerator()); // random order
-t.route = r;
-t.startTrip();
-]]></StartupCode>
+startGeneration();]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1793204945525</Id>
@@ -143,12 +139,384 @@ t.startTrip();
 				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
 			</ScaleRuler>
 			<CurrentLevel>1793204945526</CurrentLevel>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1793211949602</Id>
+					<Name><![CDATA[generation]]></Name>
+					<X>350</X><Y>620</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793211951737</Id>
+					<Name><![CDATA[trucksHome]]></Name>
+					<X>350</X><Y>650</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793211954404</Id>
+					<Name><![CDATA[bestFitness]]></Name>
+					<X>350</X><Y>690</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[1e9]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1793211956925</Id>
+					<Name><![CDATA[bestRoute]]></Name>
+					<X>350</X><Y>730</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[ArrayList<Integer>]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[null]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793211744629</Id>
+					<Name><![CDATA[GENERATIONS]]></Name>
+					<X>190</X><Y>670</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793211744627</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793211742318</Id>
+					<Name><![CDATA[POP_SIZE]]></Name>
+					<X>190</X><Y>630</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[50]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793211742316</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793211747495</Id>
+					<Name><![CDATA[TOURNAMENT_K]]></Name>
+					<X>190</X><Y>700</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[3]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793211747493</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793211750100</Id>
+					<Name><![CDATA[MUTATION_RATE]]></Name>
+					<X>190</X><Y>740</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.2]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793211750098</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1793211752747</Id>
+					<Name><![CDATA[ELITE]]></Name>
+					<X>190</X><Y>780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[2]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1793211752745</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+			</Variables>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
+					<Id>1793212070368</Id>
+					<Name><![CDATA[randomRoute]]></Name>
+					<X>530</X><Y>640</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[ArrayList<Integer> r = new ArrayList<>();
+for (int i = 0; i < stops.size(); i++) {
+    r.add(i);
+}
+Collections.shuffle(r, getDefaultRandomGenerator());
+return r;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[Truck]]></ReturnType>
+					<Id>1793212072935</Id>
+					<Name><![CDATA[tournament]]></Name>
+					<X>530</X><Y>670</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[Truck winner = null;
+for (int i = 0; i < TOURNAMENT_K; i++) {
+    Truck contestant = trucks.random();
+    if (winner == null || contestant.fitness < winner.fitness) {
+        winner = contestant;
+    }
+}
+return winner;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
+					<Id>1793212076963</Id>
+					<Name><![CDATA[orderedCrossover]]></Name>
+					<X>530</X><Y>700</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[a]]></Name>
+						<Type><![CDATA[ArrayList<Integer>]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[b]]></Name>
+						<Type><![CDATA[ArrayList<Integer>]]></Type>
+					</Parameter>
+					<Body><![CDATA[int n = a.size();
+int start = uniform_discr(0, n - 1);          // slice starts here
+int end = uniform_discr(start + 1, n);        // and stops just before here
+
+// Step 1: copy the slice from parent A
+Integer[] child = new Integer[n];             // n empty spots (null = empty)
+for (int i = start; i < end; i++) {
+    child[i] = a.get(i);
+}
+
+// Step 2: parent B's stops, in B's order, skipping the ones already in
+List<Integer> taken = a.subList(start, end);
+ArrayList<Integer> fill = new ArrayList<>();
+for (int stop : b) {
+    if (!taken.contains(stop)) {
+        fill.add(stop);
+    }
+}
+
+// Fill the empty spots left to right
+int k = 0;
+for (int i = 0; i < n; i++) {
+    if (child[i] == null) {
+        child[i] = fill.get(k);
+        k++;
+    }
+}
+return new ArrayList<>(Arrays.asList(child));]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
+					<Id>1793212079870</Id>
+					<Name><![CDATA[swapMutation]]></Name>
+					<X>530</X><Y>730</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[route]]></Name>
+						<Type><![CDATA[ArrayList<Integer>]]></Type>
+					</Parameter>
+					<Body><![CDATA[ArrayList<Integer> r = new ArrayList<>(route);   // copy, like route[:]
+int i = uniform_discr(0, r.size() - 1);
+int j = uniform_discr(0, r.size() - 1);
+while (j == i) {
+    j = uniform_discr(0, r.size() - 1);          // make sure they're different
+}
+Collections.swap(r, i, j);
+return r;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1793212373562</Id>
+					<Name><![CDATA[startGeneration]]></Name>
+					<X>530</X><Y>760</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[trucksHome = 0;
+for (Truck t : trucks) {
+	t.startTrip();
+}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1793212416762</Id>
+					<Name><![CDATA[truckFinished]]></Name>
+					<X>530</X><Y>800</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[trucksHome++;
+if (trucksHome == trucks.size()) {
+	nextGeneration(); // time to evolve, everyone's home
+}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1793212460846</Id>
+					<Name><![CDATA[nextGeneration]]></Name>
+					<X>530</X><Y>830</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[// --- 1. Look at the results of this generation ---
+List<Truck> ranked = sortAscending(trucks, t -> t.fitness);   // fastest first
+Truck best = ranked.get(0);
+double avg = average(trucks, t -> t.fitness);
+
+if (best.fitness < bestFitness) {
+    bestFitness = best.fitness;
+    bestRoute = new ArrayList<>(best.route);
+}
+traceln("Generation " + generation + ":  best = " + best.fitness
+        + " min   average = " + avg + " min");
+
+// --- 2. Stop if we're done ---
+if (generation == GENERATIONS) {
+    traceln("DONE. Best route: " + bestRoute + "  (" + bestFitness + " min)");
+    finishSimulation();
+    return;
+}
+
+// --- 3. Build the next generation's routes ---
+ArrayList<ArrayList<Integer>> newRoutes = new ArrayList<>();
+
+for (int i = 0; i < ELITE; i++) {                        // elitism
+    newRoutes.add(new ArrayList<>(ranked.get(i).route));
+}
+while (newRoutes.size() < POP_SIZE) {
+    Truck mom = tournament();                            // selection
+    Truck dad = tournament();
+    ArrayList<Integer> child = orderedCrossover(mom.route, dad.route);   // crossover
+    if (randomTrue(MUTATION_RATE)) {                     // mutation
+        child = swapMutation(child);
+    }
+    newRoutes.add(child);
+}
+
+// --- 4. Give the new routes to the trucks and send them out ---
+for (int i = 0; i < POP_SIZE; i++) {
+    trucks.get(i).route = newRoutes.get(i);
+}
+generation++;
+startGeneration();]]></Body>
+				</Function>
+			</Functions>
 
 			<EmbeddedObjects>
 				<EmbeddedObject>
 					<Id>1793206215098</Id>
 					<Name><![CDATA[stops]]></Name>
-					<X>230</X><Y>720</Y>
+					<X>60</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -205,7 +573,7 @@ t.startTrip();
 				<EmbeddedObject>
 					<Id>1793206257855</Id>
 					<Name><![CDATA[depot]]></Name>
-					<X>350</X><Y>800</Y>
+					<X>60</X><Y>670</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -253,7 +621,7 @@ t.startTrip();
 				<EmbeddedObject>
 					<Id>1793206702455</Id>
 					<Name><![CDATA[trucks]]></Name>
-					<X>380</X><Y>650</Y>
+					<X>60</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1349,8 +1717,8 @@ if (nextIndex < route.size()) {
 } else if (nextIndex == route.size()) {
     moveTo(main.depot);                              // all stops done: go home
 } else {
-    fitness = time() - startTime;                    // back at Albrook: score it
-    traceln("Route " + route + " took " + fitness + " minutes");
+    fitness = time() - startTime;
+    main.truckFinished();          // tell Main I'm home
 }]]></OnArrival>
 				<MessageType><![CDATA[Object]]></MessageType>
 				<PhysicalLength Class="CodeUnitValue">
@@ -1664,6 +2032,21 @@ moveTo(main.stops.get(route.get(0)));   // drive to it]]></Body>
 			</Presentation>
 
 			<Parameters>
+				<Parameter>
+					<ParameterName><![CDATA[GENERATIONS]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[POP_SIZE]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[TOURNAMENT_K]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[MUTATION_RATE]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[ELITE]]></ParameterName>
+				</Parameter>
 			</Parameters>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
