@@ -87,3 +87,20 @@
 - Check: route [3,4,1,7,5,8,2,6,0] took 149.6 min in AnyLogic. Python says 99.9 km = 149.9 min. 0.2% apart - AnyLogic measures distance on the globe slightly differently than haversine. AnyLogic and Python agree.
 - Constant speed doesn't change which route is best; with real roads (different speeds) it will.
 - zsh (%) vs Python (>>>): Python code goes in python3 or python3 -c "...".
+
+## Lesson 10 - The GA in AnyLogic
+- Main: parameters POP_SIZE 50, GENERATIONS 100, TOURNAMENT_K 3, MUTATION_RATE 0.2, ELITE 2; variables generation, trucksHome, bestFitness, bestRoute.
+- Functions: randomRoute, tournament, orderedCrossover, swapMutation, startGeneration, truckFinished, nextGeneration (same pieces as Python lessons 2-5).
+- Each truck calls main.truckFinished() when home; the LAST one triggers nextGeneration().
+- Build ALL new routes first, then hand them out (tournaments need the old routes).
+- "Constructor Main(...) is undefined" = Main didn't compile because of mistakes inside it. Check the Problems panel.
+- Gotcha: the Arguments "Type" cell only shows the first line - pasted code was hiding in it.
+- 10-gen test: 103 -> 77.8 min. Python confirms that route = 51.96 km = 77.9 min.
+- 100-gen run: stuck at 76.02 min from gen 14 to 100. That's the same 50.7 km route Python got stuck on in 2 of 10 runs.
+  Stuck:   Albrook -> Costa del Este -> Rommel -> Tocumen -> Pedregal -> Los Andes -> USMA -> Urraca -> Hospital -> Casco (50.74 km)
+  Best:    Albrook -> USMA -> Los Andes -> Pedregal -> Tocumen -> Rommel -> Costa del Este -> Urraca -> Hospital -> Casco (49.36 km)
+- = a LOCAL OPTIMUM: to fix it you must reverse the first 6 stops. Every single swap makes it worse (best swap = 51.26 km), so swap mutation can't escape.
+- Fix: inversion mutation (reverse a chunk) - one of Felipe's three mutations. One inversion turns 50.74 into 49.36.
+- With inversion (MUTATION_RATE 0.2, half swap / half inversion): stuck at 76.02 min from gen 15-29, ESCAPED at gen 30 -> 73.96 min.
+  Best route [3,4,7,8,6,5,2,1,0] = Python [4,5,8,9,7,6,3,2,1] = the true best (49.36 km = 74.04 min in Python). AnyLogic found the optimum.
+- One run is one data point. For the thesis: repeat with different seeds and report how often it finds the best.

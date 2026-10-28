@@ -497,8 +497,12 @@ while (newRoutes.size() < POP_SIZE) {
     Truck mom = tournament();                            // selection
     Truck dad = tournament();
     ArrayList<Integer> child = orderedCrossover(mom.route, dad.route);   // crossover
-    if (randomTrue(MUTATION_RATE)) {                     // mutation
-        child = swapMutation(child);
+       if (randomTrue(MUTATION_RATE)) {                     // mutation
+        if (randomTrue(0.5)) {
+            child = swapMutation(child);
+        } else {
+            child = inversionMutation(child);
+        }
     }
     newRoutes.add(child);
 }
@@ -509,6 +513,26 @@ for (int i = 0; i < POP_SIZE; i++) {
 }
 generation++;
 startGeneration();]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
+					<Id>1793214066817</Id>
+					<Name><![CDATA[inversionMutation]]></Name>
+					<X>530</X><Y>870</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[route]]></Name>
+						<Type><![CDATA[ArrayList<Integer>]]></Type>
+					</Parameter>
+					<Body><![CDATA[ArrayList<Integer> r = new ArrayList<>(route);
+int i = uniform_discr(0, r.size() - 2); // start of chunk
+int j = uniform_discr(i + 1, r.size() -1); // end of chunk
+Collections.reverse(r.subList(i, j + 1)); // flip the chunk
+return r;]]></Body>
 				</Function>
 			</Functions>
 
